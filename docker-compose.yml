@@ -1,0 +1,39 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - mysql
+  
+  mysql:
+    image: mysql/mysql-server:5.7
+    environment:
+      MYSQL_ROOT_HOST: '%' # Permite acesso de qualquer host
+      MYSQL_ROOT_PASSWORD: rootpass  # Senha do usuário root
+      #permitir login com root de qualquer host
+      MYSQL_DATABASE: database  # Nome do banco de dados
+      MYSQL_USER: user  # Usuário do banco de dados
+      MYSQL_PASSWORD: userpass  # Senha do usuário root
+
+    ports:
+      - "3306:3306" # Porta do container:porta do host
+    volumes:
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql:ro
+      - mysql-data:/var/lib/mysql:delegated  # Volume do docker-compose para persistir os dados do banco
+    command: --innodb-buffer-pool-size=64M --innodb-log-file-size=32M --innodb-log-buffer-size=8M 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin 
+    environment:
+      PMA_HOST: mysql # Nome do serviço do banco de dados
+      PMA_USER: user # Usuário do banco de dados
+      PMA_PASSWORD: userpass # Senha do usuário root
+    ports:
+      - "8080:80" # Porta do container:porta do host
+    depends_on:
+      - mysql
+volumes:
+  mysql-data:
