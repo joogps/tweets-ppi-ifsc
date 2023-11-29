@@ -10,8 +10,8 @@
                 <p class='text'>{$tweet['text']}</p>
                 <span class='date'>$formattedDate</span>
                 <div class='tweet-actions'>
-                    <a href='telaEditarUsuario.php?id={$tweet['id']}'>Editar</a>
-                    <a href='excluir_usuario.php?id={$tweet['id']}&op=confirma_ok'>Excluir</a>
+                    <a href='edit_tweet.php?id={$tweet['id']}'>Editar</a>
+                    <a href='delete_tweet.php?id={$tweet['id']}'>Excluir</a>
                 </div>
             </div>";
     }
