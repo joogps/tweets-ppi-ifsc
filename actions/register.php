@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('db_connection.php');
+require_once('../model/database.php');
 
 $conn = conectar();
 
@@ -40,7 +40,7 @@ $conn = null;
 <body>
     <div class="container">
         <h2><?php echo $message; ?></h2>
-        <a href="../view/tweets.php">Tela inicial</a>
+        <a href="../view/tweets.php" class="tweet-link">Tela inicial</a>
     </div>
 </body>
 </html>

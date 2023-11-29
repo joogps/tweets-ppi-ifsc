@@ -1,5 +1,5 @@
 <?php
-require_once('db_connection.php');
+require_once('database.php');
 
 function getTweets($str = "") {
     $conn = conectar();

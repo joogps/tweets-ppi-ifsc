@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: view/login_form.php");
+    header("Location: view/login.php");
     exit();
 }
 ?>
@@ -17,14 +17,19 @@ if (!isset($_SESSION['user_id'])) {
 </head>
 <body>
     <div class="container">
-    <h2>Tweets</h2>
-    <h3>Olá, <?php echo $_SESSION['username']; ?>!</h3>
-    <form class="tweet-form" action="make_tweet.php" method="post">
+    <div>
+        <div style="float: left">
+        <h2>Tweets</h2>
+        <h3>Olá, <?php echo $_SESSION['username']; ?>!</h3>
+        </div>
+        <a style="float: right" class="tweet-button" href="/actions/logout.php">Logout</a>
+    </div>
+    <form class="tweet-form" action="/actions/make_tweet.php" method="post">
         <textarea name="text" placeholder="O que está acontecendo?" type="text" name="tweet" class="tweet-field"></textarea>
         <input class="tweet-button" value="Tweetar" type="submit">
     </form>
     <div class="tweet-list">
-    <?php   include_once("list_tweets.php"); ?>
+    <?php include_once("list_tweets.php"); ?>
 </div>
     </div>
 </body>
