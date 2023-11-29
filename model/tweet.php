@@ -1,9 +1,9 @@
 <?php
 require_once('database.php');
 
-function getTweets($str = "") {
+function getTweets($query = "") {
     $conn = conectar();
-    $sql = "SELECT tweets.*, users.username FROM tweets JOIN users ON tweets.user_id = users.id ORDER BY tweets.date DESC";
+    $sql = "SELECT tweets.*, users.username FROM tweets JOIN users ON tweets.user_id = users.id WHERE text LIKE '%$query%' ORDER BY tweets.date DESC";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $tweets = $stmt->fetchAll(PDO::FETCH_ASSOC);

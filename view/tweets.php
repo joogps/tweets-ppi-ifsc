@@ -24,10 +24,24 @@ if (!isset($_SESSION['user_id'])) {
         </div>
         <a style="float: right" class="tweet-button" href="/actions/logout.php">Logout</a>
     </div>
+
     <form class="tweet-form" action="/actions/make_tweet.php" method="post">
         <textarea name="text" placeholder="O que está acontecendo?" type="text" name="tweet" class="tweet-field"></textarea>
         <input class="tweet-button" value="Tweetar" type="submit">
     </form>
+
+    <?php if (isset($_GET["query"] )){
+        $query = Trim($_GET["query"]);
+    } else {
+        $query = "";
+    }
+    ?>
+
+    <form class="search-form" action="tweets.php" method="get">
+        <input name="query" placeholder="Buscar" type="text" class="search-field" value=<?php echo $query ;?>></input>
+        <input class="tweet-button" value="Buscar" type="submit">
+    </form>
+
     <div class="tweet-list">
     <?php include_once("list_tweets.php"); ?>
 </div>

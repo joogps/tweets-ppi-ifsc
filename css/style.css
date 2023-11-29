@@ -21,7 +21,6 @@ h1, h2 {
     border-radius: 25px;
     padding: 12px 24px;
     background-color: #1DA1F2;
-    margin: 10px;
     color: white;
     font-size: 12px;
     font-weight: bold;
@@ -50,6 +49,21 @@ h1, h2 {
     border-radius: 8px;
     
     padding: 10px;
+    margin-bottom: 10px;
+}
+
+.search-form {
+    display: flex;
+    flex-direction: row;
+}
+
+.search-field {
+    width: 100%;
+    border: 1px solid #1DA1F2;
+    border-radius: 8px;
+    
+    padding: 10px;
+    margin-right: 10px;
 }
 
 .tweet {
