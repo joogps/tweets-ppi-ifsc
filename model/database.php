@@ -1,7 +1,7 @@
 <?php
 function conectar(){
     $host = "mysql";
-    $db_name = "crud_ppi";
+    $db_name = "tweets_ppi";
     $username = "root";
     $password = "rootpass";
     $conn = null;
