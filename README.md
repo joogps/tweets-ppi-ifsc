@@ -1,23 +1,5 @@
-# Projeto CRUD PPI
+# tweets-ppi-ifsc
 
-Este projeto implementa um sistema CRUD (Create, Read, Update, Delete) para manipulação de usuários. O sistema é implementado em PHP e utiliza o banco de dados MySQL.
+Esse projeto é um um gerenciador de Tweets com PHP e MySQL para a UC de Programação para Internet (2023.2) do IFSC Campus Gaspar.
 
-## Estrutura do Projeto
-
-O projeto é dividido em duas partes principais: model e view.
-
-### model
-
-O diretório model contém o arquivo `usuario.php`, que define funções para manipular usuários no banco de dados. As funções incluem `conectar()`, `getAllUser()`, `getUser($id)`, `insertUser($nome, $email, $senha)`, `updateUser($id, $nome, $email, $senha)` e `deleteUser($id)`.
-
-### view
-
-O diretório view contém os arquivos PHP que implementam a interface do usuário e a lógica de negócios.
-
-- `cadastrar_usuario.php`: Este arquivo lida com a criação de um novo usuário. Ele recupera os dados do usuário de uma requisição POST e chama a função `insertUser()` para inserir o usuário no banco de dados.
-
-- `telaCadastrarUsuario.php`: Este arquivo exibe o formulário de cadastro de usuários. Ele preenche os campos do formulário com os valores existentes do usuário, se disponíveis.
-
-- `telaEditarUsuario.php`: Este arquivo exibe o formulário de edição de usuários. Ele preenche os campos do formulário com os valores existentes do usuário, se disponíveis.
-
-- `telaListarUsuarios.php`: Este arquivo exibe uma tabela com todos os usuários cadastrados no banco de dados. Ele também inclui links para editar e excluir usuários.
+<img width="1245" alt="Screenshot" src="https://github.com/joogps/tweets-ppi-ifsc/assets/41346220/eb040cff-c8cb-45dd-9856-1c4603aafa69">
